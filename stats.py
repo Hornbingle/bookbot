@@ -35,10 +35,16 @@ def list_of_dictionaries(current_book):
     unsorted_dictionary = letter_count(current_book)
     unsorted_dictionary_list = []
     for key in unsorted_dictionary:
-        temp_dictionary = {}
-        temp_dictionary["character"] = key
-        temp_dictionary["count"] = unsorted_dictionary[key]
-        unsorted_dictionary_list.append(temp_dictionary)
+        if key == "\n":
+            temp_dictionary = {}
+            temp_dictionary["character"] = "\ n"
+            temp_dictionary["count"] = unsorted_dictionary[key]
+            unsorted_dictionary_list.append(temp_dictionary)
+        else:
+            temp_dictionary = {}
+            temp_dictionary["character"] = key
+            temp_dictionary["count"] = unsorted_dictionary[key]
+            unsorted_dictionary_list.append(temp_dictionary)
     unsorted_dictionary_list.sort(reverse=True, key=sort_criteria)
     return unsorted_dictionary_list
 
